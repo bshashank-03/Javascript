@@ -14,7 +14,7 @@ let userEmail;
 const id = Symbol('123')
 const anotherId = Symbol('123')
 
-console.log(id === anotherId);
+//console.log(id === anotherId);
 
 // const bigNumber = 3456543576654356754n
 
@@ -35,7 +35,7 @@ let myObj = {
 
 //FUNCTIONS//
 const myFunction = function(){
-    console.log("Hello world");
+    //console.log("Hello world");
 }
 
 console.log(typeof anotherId);
@@ -56,4 +56,27 @@ Return type of variables in JavaScript
        Function  =>  function
        Object  =>  object
 */
-// https://262.ecma-international.org/5.1/#sec-11.4.3
+
+
+/*********************************************************** */
+
+// stack (Primitive)    Heap(Non Primitive)
+
+let myname = "Shashank"
+
+let anotherName = myname
+
+anotherName="Arsh" //because copy is created doesn't affect myname
+// console.log(myname);
+// console.log(anotherName);
+
+let userOne={
+    email: "user@google.com"
+}
+
+let userTwo=userOne
+
+userTwo.email = "falana@gmail.com"
+
+console.log(userOne.email);
+console.log(userTwo.email);
