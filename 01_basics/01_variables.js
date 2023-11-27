@@ -12,6 +12,12 @@ let accountState;
 /*
 Prefer not to use var
 because of issue in block scope and functional scope
+with the help of var we can access the variable outside the block also
+ex- if(3!=2){
+    var x=20
+    console.log(x) // 20
+}
+console.log(x) //20 it will print here also
 */
 
 console.log(accountId);
