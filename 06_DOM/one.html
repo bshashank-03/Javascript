@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM Learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="test">DOM Larning with Chai or Code <span style="display: none;"> Test text</span></h1>
+        <p>DOM full form is Document object Model
+            <!-- The DOM represents a document with a logical tree. Each branch of the tree ends in a node, and each node contains objects. DOM methods allow programmatic access to the tree. With them, you can change the document's structure, style, or content. -->
+        </p>
+    </div>
+</body>
+</html>
+
+<!--     
+1.innerHTML: returns all html nodes 
+2.textContent : returns all text content
+3.innerText : gives the text in the selected node
+4.querySelector
+5.querySelectorAll
+6.getAttribute
+7.setAttribute
+
+Note- { querySelectorAll returns nodeList which allows us to use forEach loop on it and and other selectors like getElementsByClassName, getElementsByName return HTMLCollection which does not allow us to use forEach loop on it.
+    
+    const tempClasslist = document.getElementsByClassName('List-item')
+-----To convert it into Array
+
+   const convertedArray = Array.from(tempClasslist)
+   convertedArray.forEach( function(li){
+    li.style.color ='orange'
+   })
+
+  IMP Note- Dom used to manupulate data on page 
+  like page me saare list item ko update kro 
+  to queryselectorall('list-item') then forEach lgake update krdo
+   
+}
+ -->
