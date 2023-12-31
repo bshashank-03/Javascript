@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+</head>
+<body style="background-color:#414141; color: aliceblue;">
+    <h2>Amazing Events</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="mountains" src="https://lh3.googleusercontent.com/pw/ADCreHexYJO3T85BcWo8mkCPzywopN8ezuHEaI1iSt4E8PGJ0ED7T-zafHvuSzLayn0np6P_L8fWRP-EU0ReZL5BR_JYU1gjBpVbvKM42CHAhOfbPKw8JOFNj2ACo54Pd0FrEfA_G_2tYKwE5l_AA_JJSGJtgzy-AeXylZol1QZuVsDxzInBqynKX3CTctqpOF6a9kQpxbJPf5PmQXtBHriZNiJsP_a8BmxwjbX-GWZoyIZjO8TheWYhCSEDLsNV89DULx1ZrqrS6oVkElP9nK9DaVvbamxcxKsyTHWRI1CjDMJXWGkSuT9fjEpPYI3OW023fnAS0hBx2Vp_e4r-t-fAMwBMGqv3x8NND9RUaKfJsQWGIff-Lwn0DZN_bV7MJO95881ov2-PQO8vLwH9aD5YqfUDgCyU2DzUY_UNwL9tb4rzVC_Lxwb_oFDtzE69puIh5tsIu5-33gp0UsyH10Pt_cvxPMCyGVMqAJKC3AsuuuXaZAaw0TVGfeTIT6HrSNnw7W7cXYMSsYMLm5ycIupScQhMa3qAoYsYDdZKGGhnTQmi3G5qK8jUrIzCfjLyrhgo-mOKAgyOauvQTYvvlicya3o4Bj1NmemHKpXB8ItqYTUQUprCvGjtxEfxzPRsFHVP4xXshgupQKk2Vaw5y8VL4ePeLBwXLLISgMe9IO3errn1qFAKc348B3rIkzBjeMSwpavWaZq8NIWHNbFtw7MQXTqHR4SZFu59sdMPwn31gRzeaHeBSvJhgbz0B2VjVF7yTHmrPQ8kPuSUiR_9HhMh2wL2IOQPQtblItqNoP_MSUsPm2VhZi6vPFWcnhgdPBRwChQwegJTz_-Kg9V4SIhlGPlZmgLC0XwH2U6v4PxPbny4Mou_kDQuXac0TaF6mZhgQwRTSz22_1NN3fLsxEmj1xi15L-mtO4p7cSEZDrnLL0ELRqRFX1flPHHSil8kvHEFSZ7etuHZ91EEFQoEUeuq3EtaKiacER9hjeg4acUuoShVG7b=w387-h688-s-no-gm?authuser=1" alt="mountains"></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+    
+</body>
+<script>
+    // document.getElementById('mountains').onclick= function(){
+    //     alert("Mountains Clicked")
+    // }
+    // Best Approach
+
+    // document.getElementById('mountains').addEventListener('click', function(){
+    //     alert("Mountains Clicked")
+    // })
+     // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    /*-- Event Propogation
+    Bubbling -- false (bydefault) {inside to outside}
+    Event Capturing -- true {outside to inside}
+    */
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    //     e.stopPropagation()
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault();
+    //     // e.stopPropagation();
+    //     console.log("Google clicked");
+    // },false)
+
+        document.getElementById('images').addEventListener('click', function(e){
+            console.log(e.target.tagName);
+            if(e.target.tagName === 'IMG'){
+                console.log(e.target.id);
+                let removeIt = e.target.parentNode
+                removeIt.remove();
+            }
+        })
+</script>
+</html>
