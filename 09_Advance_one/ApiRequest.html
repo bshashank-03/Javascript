@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>github API Card</title>
+</head>
+<body style="background-color: #212121;">
+    <!-- 
+    XMLHttpRequest: readyState property
+The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client exists in one of the following states:
+
+Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete.
+ -->
+<div class="card-container">
+    <div class="card">
+        <img src="img_avatar.png" alt="Avatar">
+        <div class="card-content">
+            <h3>CARD</h3>
+            <p>Here is my github profile picture with No of followers and repos count</p>
+            <button id="btn">GET DATA</button>
+        </div>
+    </div>
+</div>
+    
+ <!-- 
+
+let flwrs = document.querySelector('.followers_cnt h3');
+            flwrs.appendChild(document.createTextNode(data.followers))
+
+            let img_div = document.querySelector('.img');
+            const new_img = document.createElement("img");
+            new_img.src = data.avatar_url;
+            img_div.appendChild(new_img); -->
+</body>
+<script>
+    const requestUrl = "https://api.github.com/users/shashankbhushan"
+    const xhr= new XMLHttpRequest();
+    xhr.open('GET', requestUrl)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText)
+            console.log(typeof data);
+            console.log(data.public_repos);
+
+            document.querySelector("#btn").addEventListener('click', function(){
+                document.querySelector(".card img").setAttribute("src", `${data.avatar_url}`)
+              document.querySelector("h3").innerHTML = `${data.name}, Followers:${data.followers}`
+            })
+
+            
+        }
+    }
+    xhr.send()
+
+</script>
+</html>
